@@ -106,11 +106,12 @@ class CreateShoppingListItemRoute extends StatelessWidget {
                 child: Text('Save'),
                 onPressed: () async {
                   if (_fbKey.currentState.saveAndValidate()) {
-                    final String name = _fbKey.currentState.value['name'];
+                    final String name =
+                        _fbKey.currentState.value['name'].trim();
                     final String category =
-                        _fbKey.currentState.value['category'];
+                        _fbKey.currentState.value['category'].trim();
                     final bool isCategoryExists =
-                        categories.where(_compare(category)).isNotEmpty;
+                        categories.where(_equals(category)).isNotEmpty;
 
                     await _db.createShoppingListItem(
                       name,
@@ -134,7 +135,14 @@ class CreateShoppingListItemRoute extends StatelessWidget {
   }
 
   bool Function(Category category) _compare(String pattern) {
-    return (category) =>
-        category.name.toLowerCase().contains(pattern.toLowerCase());
+    return (category) {
+      return category.name.toLowerCase().contains(pattern.toLowerCase());
+    };
+  }
+
+  bool Function(Category category) _equals(String pattern) {
+    return (category) {
+      return category.name.toLowerCase() == pattern.toLowerCase();
+    };
   }
 }

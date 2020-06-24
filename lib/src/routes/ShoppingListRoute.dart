@@ -81,7 +81,8 @@ class ShoppingListRoute extends StatelessWidget {
       separator: Divider(height: 1),
       itemBuilder: _buildShoppingListTile,
       groupSeparatorBuilder: _buildGroupSeparator(context),
-      groupBy: (ShoppingListItem shoppingListItem) => shoppingListItem.category,
+      groupBy: (ShoppingListItem shoppingListItem) =>
+          shoppingListItem.category.trim(),
     );
   }
 
