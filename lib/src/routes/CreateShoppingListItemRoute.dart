@@ -59,14 +59,6 @@ class CreateShoppingListItemRoute extends StatelessWidget {
             key: _fbKey,
             child: Column(
               children: <Widget>[
-                FormBuilderTextField(
-                  attribute: 'name',
-                  decoration: const InputDecoration(labelText: 'Name'),
-                  validators: [
-                    FormBuilderValidators.required(),
-                    FormBuilderValidators.maxLength(256),
-                  ],
-                ),
                 FormBuilderTypeAhead(
                   attribute: 'category',
                   decoration: const InputDecoration(labelText: 'Category'),
@@ -85,6 +77,14 @@ class CreateShoppingListItemRoute extends StatelessWidget {
 
                     return categories.map((category) => category.name).toList();
                   },
+                  validators: [
+                    FormBuilderValidators.required(),
+                    FormBuilderValidators.maxLength(256),
+                  ],
+                ),
+                FormBuilderTextField(
+                  attribute: 'name',
+                  decoration: const InputDecoration(labelText: 'Name'),
                   validators: [
                     FormBuilderValidators.required(),
                     FormBuilderValidators.maxLength(256),
