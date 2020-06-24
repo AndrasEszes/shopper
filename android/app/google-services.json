@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "996832073879",
+    "firebase_url": "https://shopper-884b4.firebaseio.com",
+    "project_id": "shopper-884b4",
+    "storage_bucket": "shopper-884b4.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:996832073879:android:84085a3c48d85a406131d2",
+        "android_client_info": {
+          "package_name": "com.andraseszes.shopper"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "996832073879-b5vevg3mno0snkraco2b6im38vbn3tk8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC0hs7Pi_dKvy3BifKW4apZTloB16cPlCY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "996832073879-b5vevg3mno0snkraco2b6im38vbn3tk8.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
