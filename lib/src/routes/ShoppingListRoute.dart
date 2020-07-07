@@ -8,6 +8,7 @@ import 'package:shopper/src/models/ShoppingListItem.dart';
 import 'package:shopper/src/routes/CreateShoppingListItemRoute.dart';
 import 'package:shopper/src/services/DatabaseService.dart';
 import 'package:shopper/src/widgets/ShopperAppBar.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class ShoppingListRoute extends StatelessWidget {
   final DatabaseService _db = DatabaseService();
@@ -110,20 +111,33 @@ class ShoppingListRoute extends StatelessWidget {
     BuildContext context,
     ShoppingListItem shoppingListItem,
   ) {
+    final link = shoppingListItem.link;
+    final hasLink = link.isNotEmpty;
+    final subtitle = Text(shoppingListItem.link,
+        maxLines: 1, overflow: TextOverflow.ellipsis);
+
     return Dismissible(
       key: Key(shoppingListItem.id),
       direction: DismissDirection.endToStart,
-      child: CheckboxListTile(
-        title: Text(shoppingListItem.name),
-        value: shoppingListItem.purchased,
-        onChanged: (purchased) {
-          _db.updateCheckedStateOfShoppingListItem(
-            shoppingListItem.id,
-            shoppingList,
-            purchased,
-          );
+      child: GestureDetector(
+        child: CheckboxListTile(
+          title: Text(shoppingListItem.name),
+          subtitle: hasLink ? subtitle : null,
+          value: shoppingListItem.purchased,
+          onChanged: (purchased) {
+            _db.updateCheckedStateOfShoppingListItem(
+              shoppingListItem.id,
+              shoppingList,
+              purchased,
+            );
+          },
+          controlAffinity: ListTileControlAffinity.leading,
+        ),
+        onLongPress: () async {
+          if (hasLink && await canLaunch(link)) {
+            await launch(link);
+          }
         },
-        controlAffinity: ListTileControlAffinity.leading,
       ),
       background: Container(
         color: Colors.redAccent[400],

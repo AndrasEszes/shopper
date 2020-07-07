@@ -90,6 +90,16 @@ class CreateShoppingListItemRoute extends StatelessWidget {
                     FormBuilderValidators.maxLength(256),
                   ],
                 ),
+                FormBuilderTextField(
+                  attribute: 'link',
+                  decoration: const InputDecoration(
+                    labelText: 'Link (optional)',
+                  ),
+                  validators: [
+                    FormBuilderValidators.url(),
+                    FormBuilderValidators.maxLength(2048),
+                  ],
+                ),
               ],
             ),
           ),
@@ -110,6 +120,8 @@ class CreateShoppingListItemRoute extends StatelessWidget {
                         _fbKey.currentState.value['name'].trim();
                     final String category =
                         _fbKey.currentState.value['category'].trim();
+                    final String link =
+                        _fbKey.currentState.value['link'].trim();
                     final bool isCategoryExists =
                         categories.where(_equals(category)).isNotEmpty;
 
@@ -117,6 +129,7 @@ class CreateShoppingListItemRoute extends StatelessWidget {
                       name,
                       category,
                       shoppingList,
+                      link,
                     );
 
                     if (!isCategoryExists) {

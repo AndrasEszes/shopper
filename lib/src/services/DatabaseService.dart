@@ -82,10 +82,12 @@ class DatabaseService {
   Future<void> createShoppingListItem(
     String name,
     String category,
-    ShoppingList shoppingList,
-  ) async {
+    ShoppingList shoppingList, [
+    String link,
+  ]) async {
     await _items(shoppingList.id).add(ShoppingListItem(
       name: name,
+      link: link,
       category: category,
     ).toMap());
 
