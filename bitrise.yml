@@ -1,6 +1,6 @@
 format_version: "13"
 default_step_lib_source: https://github.com/bitrise-io/bitrise-steplib.git
-project_type: flutter
+project_type: other
 workflows:
   deploy:
     summary: remote-second
@@ -45,9 +45,6 @@ workflows:
         - project_location: $BITRISE_FLUTTER_PROJECT_LOCATION
     - save-dart-cache@1: {}
     - deploy-to-bitrise-io@2: {}
-meta:
-  bitrise.io:
-    machine_type_id: g2-m1.4core
 app:
   envs:
   - opts:
