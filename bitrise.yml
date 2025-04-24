@@ -1,8 +1,4 @@
-format_version: "13"
-default_step_lib_source: https://github.com/bitrise-io/bitrise-steplib.git
-project_type: android
-workflows:
-  deploy:
+format_version: "13" default_step_lib_source: https://github.com/bitrise-io/bitrise-steplib.git project_type: android workflows: deploy:
     summary: remote-second
     description: |
       Builds and deploys app using [Deploy to bitrise.io Step](https://devcenter.bitrise.io/en/getting-started/getting-started-with-flutter-apps.html#deploying-a-flutter-app).
