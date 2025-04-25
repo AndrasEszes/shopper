@@ -13,7 +13,7 @@ workflows:
       - Check out [Getting started with Flutter apps](https://devcenter.bitrise.io/en/getting-started/getting-started-with-flutter-apps.html) for signing and deployment options.
       - Check out the [Code signing guide](https://devcenter.bitrise.io/en/code-signing.html) for iOS and Android
     steps:
-   - git-clone@8: {}
+    - git-clone@8: {}
     - certificate-and-profile-installer@1: {}
     - flutter-installer@0:
         inputs:
