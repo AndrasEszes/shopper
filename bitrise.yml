@@ -55,3 +55,7 @@ trigger_map:
   workflow: primary
 - pull_request_source_branch: '*'
   workflow: primary
+meta:
+  bitrise.io:
+    stack: linux-docker-android-22.04
+    machine_type_id: g2.linux.large
